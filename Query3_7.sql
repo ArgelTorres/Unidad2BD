@@ -16,10 +16,22 @@ SELECT COUNT(placeholder) AS award_a
     FROM ARG.LAUREATES
     WHERE award_a > 1
 --Obtener el campo o lenguaje con mas premios nobel
-SELECT FROM 
+SELECT COUNT(awd.prize_name)
+    FROM ARG.AWARD awd 
+    
 --Obtener los premios ganados desde el año 1980 al 1990 en química
 SELECT *
     FROM (SELECT prize_inf.year
     FROM ARG.PRIZE prize_inf
     WHERE ( prize_inf.year BETWEEN 1980 AND 1990))
 WHERE prize_inf.category == "The nobel prize in chamistry"
+--Obtener el premio nobel ganado menos ocasiones
+SELECT *
+    FROM(SELECT COUNT(awd.name) times_w
+    FROM ARG.AWARD awd
+    ORDER BY times_w DESC)
+WHERE ROWNUM = 1
+--Obtener el promedio de edad de todos los ganadores al momento en que ganan su premio
+SELECT *
+    FROM 
+    
