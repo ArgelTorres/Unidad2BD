@@ -23,3 +23,10 @@ CREATE FUNCTION laureate_age_won (birth_date IN DATE, date_won  IN DATE)
         RETURN(age_current);
     END;
 --Crear un procedimiento almacenado para insertar a un ganador de algún premio nobel
+create or replace procedure insertar_ganador IS algo_insert INTEGER, laureates_t IN TABLE, data_b IN STRING, data_c IN STRING ;
+begin
+INSERT INTO laureates_t
+(name, birthdate, role_affiliate)
+VALUES
+(algo_insert, data_b, data_c);
+end insertar_ganador;
